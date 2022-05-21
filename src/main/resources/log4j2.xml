@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+  <!-- Define custom levels before using them for filtering below. -->
+  <CustomLevels>
+    <CustomLevel name="VERBOSE" intLevel="300" />
+  </CustomLevels>
+ 
+ <!-- Define appenders where logs will appear. -->
+  <Appenders>
+    <Console name="Console" target="SYSTEM_OUT">
+      <PatternLayout pattern="%d %-7level %logger{36} - %msg%n"/>
+    </Console>
+    <File name="MyFile" fileName="logs/app.log">
+      <PatternLayout pattern="%d %-7level %logger{36} - %msg%n"/>
+    </File>
+  </Appenders>
+  
+  <!-- Define loggers root level. -->
+  <Loggers>
+    <Root level="trace">
+      <!-- Only events at Trace level or more specific are sent to the console and the file. -->
+      <AppenderRef ref="Console" level="trace" />
+      <AppenderRef ref="MyFile" level="trace" />
+    </Root>
+  </Loggers>
+</Configuration>
